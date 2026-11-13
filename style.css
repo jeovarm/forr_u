@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #e8d8c3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: #5b4030;
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 15px;
+    border: 1px solid #a98a70;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.hearts {
+    position: fixed;
+    top: 10%;
+    left: 12%;
+    font-size: 65px;
+    color: #b18c70;
+    opacity: 0.4;
+    animation: float 4s infinite ease-in-out;
+}
+
+.heart2 {
+    top: 75%;
+    left: 80%;
+    font-size: 80px;
+    animation-delay: 1s;
+}
+
+.heart3 {
+    top: 15%;
+    left: 80%;
+    font-size: 35px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* MUSIC BUTTON */
+
+.music-control {
+    position: fixed;
+    top: 35px;
+    right: 35px;
+    z-index: 10;
+}
+
+.music-control button {
+    background: #76563f;
+    color: #f8eee2;
+    border: none;
+    padding: 10px 17px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+}
+
+/* CONTAINER */
+
+.container {
+    position: relative;
+    width: 90%;
+    max-width: 650px;
+    min-height: 500px;
+    background: #f8f0e5;
+    border: 1px solid #c9ad91;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(77, 48, 30, 0.15);
+    padding: 55px 45px 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* SLIDES */
+
+.slide {
+    position: absolute;
+    width: calc(100% - 90px);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.small-text {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #a17b5d;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 55px;
+    line-height: 1.2;
+    color: #67452f;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    color: #67452f;
+    margin-bottom: 25px;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+    color: #765b48;
+}
+
+.heart {
+    font-size: 45px;
+    color: #a77c5b;
+    margin: 15px 0;
+}
+
+.decoration {
+    font-size: 45px;
+    color: #b28c6d;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.number {
+    position: absolute;
+    top: -35px;
+    right: 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #a58a73;
+}
+
+.bottom-text {
+    margin-top: 30px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #a17b5d;
+}
+
+/* BUTTON */
+
+.next-btn {
+    margin-top: 30px;
+    padding: 12px 28px;
+    background: #76563f;
+    border: 1px solid #76563f;
+    border-radius: 3px;
+    color: #fff5e9;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.next-btn:hover {
+    background: transparent;
+    color: #76563f;
+}
+
+/* NAVIGATION */
+
+.navigation {
+    position: absolute;
+    bottom: 22px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation button {
+    border: none;
+    background: transparent;
+    color: #8a6b52;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.progress {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #a58a73;
+}
+
+/* FINAL */
+
+.final-heart {
+    font-size: 40px;
+    color: #a77c5b;
+    margin-top: 20px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .container {
+        width: 88%;
+        min-height: 510px;
+        padding: 45px 25px 75px;
+    }
+
+    .slide {
+        width: calc(100% - 50px);
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    h2 {
+        font-size: 29px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .music-control {
+        top: 35px;
+        right: 30px;
+    }
+
+    .navigation {
+        left: 20px;
+        right: 20px;
+    }
+
+    .hearts {
+        font-size: 40px;
+    }
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 5 Monthsary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BACKGROUND DECORATION -->
+    <div class="hearts">♡</div>
+    <div class="hearts heart2">♡</div>
+    <div class="hearts heart3">♡</div>
+
+    <!-- MUSIC -->
+    <audio id="bgMusic" loop autoplay>
+        <source src="about-you.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control">
+        <button id="musicBtn" onclick="toggleMusic()">♫ Play Music</button>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="container">
+
+        <!-- OPENING -->
+        <section class="slide active">
+            <div class="small-text">A little celebration for us</div>
+            <h1>Happy 5<br>Monthsary</h1>
+            <div class="heart">♡</div>
+            <p class="subtitle">Five months of us, and many more to come.</p>
+            <button class="next-btn" onclick="nextSlide()">
+                Open Your Letter →
+            </button>
+        </section>
+
+        <!-- SLIDE 1 -->
+        <section class="slide">
+            <span class="number">01 / 06</span>
+            <div class="decoration">♡</div>
+            <h2>Hi, Sayang!</h2>
+            <p>
+                Hi sayang, aku kasih web ini khusus buat
+                rayain 5 bulan kita bareng.
+            </p>
+            <div class="bottom-text">Made with love, just for you.</div>
+            <button class="next-btn" onclick="nextSlide()">Next →</button>
+        </section>
+
+        <!-- SLIDE 2 -->
+        <section class="slide">
+            <span class="number">02 / 06</span>
+            <div class="decoration">☁</div>
+            <h2>Time Flies</h2>
+            <p>
+                Ga kerasa kan? Kita udah jalanin 5 bulan ini
+                bareng-bareng, dari yang awalnya cuman chat iseng.
+            </p>
+            <div class="bottom-text">And look where we are now.</div>
+            <button class="next-btn" onclick="nextSlide()">Next →</button>
+        </section>
+
+        <!-- SLIDE 3 -->
+        <section class="slide">
+            <span class="number">03 / 06</span>
+            <div class="decoration">♡</div>
+            <h2>Through Everything</h2>
+            <p>
+                5 bulan yang ga selalu mulus, dimana kita sering
+                gapunya waktu buat ngobrol banyak karena sama-sama
+                sibuk, tapi kita memilih buat tetep bareng.
+                Itu aja aku udah bersyukur banget.
+            </p>
+            <div class="bottom-text">Thank you for staying.</div>
+            <button class="next-btn" onclick="nextSlide()">Next →</button>
+        </section>
+
+        <!-- SLIDE 4 -->
+        <section class="slide">
+            <span class="number">04 / 06</span>
+            <div class="decoration">୨୧</div>
+            <h2>Thank You</h2>
+            <p>
+                Makasih udah selalu ada buat aku ya sayang.
+                Walaupun kadang ga selalu ada tapi gapapa ok,
+                aku tetap sayang kamu.
+            </p>
+            <div class="bottom-text">I appreciate you, always.</div>
+            <button class="next-btn" onclick="nextSlide()">Next →</button>
+        </section>
+
+        <!-- SLIDE 5 -->
+        <section class="slide">
+            <span class="number">05 / 06</span>
+            <div class="decoration">♡</div>
+            <h2>My Promise</h2>
+            <p>
+                Aku ga janji bisa jadi yang paling sempurna,
+                tapi aku janji bakal selalu usaha jadi yang terbaik
+                buat kamu. Aku mau kita sama-sama terus,
+                kalau bisa.
+            </p>
+            <div class="bottom-text">Let's keep choosing each other.</div>
+            <button class="next-btn" onclick="nextSlide()">Next →</button>
+        </section>
+
+        <!-- SLIDE 6 -->
+        <section class="slide">
+            <span class="number">06 / 06</span>
+            <div class="decoration">♡</div>
+            <h2>You Know What?</h2>
+            <p>
+                Kamu tau ga? Gatau sayang, yaudah nih aku kasih tau.
+                5 bulan sama kamu itu 5 bulan paling bahagia di hidup aku.
+                Kamu yang bikin hari-hari aku yang biasa aja jadi terasa
+                spesial seperti martabak ok. Senyum kamu, cara kamu
+                marah ataupun ngambek semuanya aku suka.
+            </p>
+            <div class="bottom-text">You're my favorite person.</div>
+            <button class="next-btn" onclick="nextSlide()">Finish ♡</button>
+        </section>
+
+        <!-- FINAL SLIDE -->
+        <section class="slide">
+            <div class="decoration">♡</div>
+            <h1>To More<br>Months With You</h1>
+            <p>
+                Happy 5 Monthsary, Sayang.
+                <br>
+                Thank you for being part of my life.
+                <br><br>
+                I love you, always.
+            </p>
+            <div class="final-heart">♥</div>
+            <button class="next-btn" onclick="restartSlides()">
+                Read Again ↺
+            </button>
+        </section>
+
+        <!-- NAVIGATION -->
+        <div class="navigation">
+            <button id="prevBtn" onclick="prevSlide()">← Previous</button>
+            <div class="progress">
+                <span id="progressText">Opening</span>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const slides = document.querySelectorAll(".slide");
+        const prevBtn = document.getElementById("prevBtn");
+        const progressText = document.getElementById("progressText");
+        const music = document.getElementById("bgMusic");
+        const musicBtn = document.getElementById("musicBtn");
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove("active"));
+
+            slides[index].classList.add("active");
+
+            currentSlide = index;
+
+            prevBtn.style.visibility =
+                currentSlide === 0 ? "hidden" : "visible";
+
+            progressText.textContent =
+                currentSlide === 0 ? "Opening" :
+                currentSlide === 7 ? "With Love ♡" :
+                `Slide ${currentSlide} / 6`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        function restartSlides() {
+            showSlide(0);
+        }
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play().then(() => {
+                    musicBtn.textContent = "♫ Pause Music";
+                }).catch(() => {
+                    musicBtn.textContent = "♫ Play Music";
+                });
+            } else {
+                music.pause();
+                musicBtn.textContent = "♫ Play Music";
+            }
+        }
+
+        music.addEventListener("play", () => {
+            musicBtn.textContent = "♫ Pause Music";
+        });
+
+        music.addEventListener("pause", () => {
+            musicBtn.textContent = "♫ Play Music";
+        });
+
+        // Try autoplay when the website opens
+        window.addEventListener("load", () => {
+            music.play().catch(() => {
+                musicBtn.textContent = "♫ Play Music";
+            });
+        });
+
+        showSlide(0);
+    </script>
+
+</body>
+</html>
